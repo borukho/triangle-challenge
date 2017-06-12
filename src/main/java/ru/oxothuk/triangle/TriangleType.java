@@ -17,12 +17,8 @@ public class TriangleType {
     public static void main(String[] args) {
         try {
             List<Number> edgesLength = mapArgsToNumbers(args);
-
-            ShapeFactory shapeFactory = new DefaultShapeFactory();
-            Triangle triangle = shapeFactory.createTriangle(byEdges(edgesLength));
-
-            String triangleType = new TriangleDescriptor(triangle).type();
-            System.out.println(String.format("This is %s triangle", triangleType));
+            Triangle triangle = createTriangleBySpecifiedEdgesLength(edgesLength);
+            writeTriangleType(triangle);
         } catch (Exception e) {
             System.out.println("error while defining triangle type: " + e.getMessage());
             printHelp();
@@ -42,6 +38,16 @@ public class TriangleType {
                 }
             })
             .collect(Collectors.toList());
+    }
+
+    private static Triangle createTriangleBySpecifiedEdgesLength(List<Number> edgesLength) {
+        ShapeFactory shapeFactory = new DefaultShapeFactory();
+        return shapeFactory.createTriangle(byEdges(edgesLength));
+    }
+
+    private static void writeTriangleType(Triangle triangle) {
+        String triangleType = new TriangleDescriptor(triangle).type();
+        System.out.println(String.format("This is %s triangle", triangleType));
     }
 
     private static void printHelp() {
