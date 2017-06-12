@@ -13,7 +13,7 @@ public class TriangleValidator {
         }
         for (Number edge : edges) {
             if (edge == null) {
-                throw new IllegalArgumentException("Triangle edges must be not null");
+                throw new ValidationException("Triangle edges must be not null");
             }
             BigDecimal edgeLength = BigDecimal.valueOf(edge.doubleValue());
             if (edgeLength.compareTo(BigDecimal.ZERO) <= 0) throw new ValidationException("Triangle edges length must be positive");
