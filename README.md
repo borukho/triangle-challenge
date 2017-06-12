@@ -6,3 +6,9 @@ We are looking for solutions that showcase problem solving skills and structural
 
 The resulting code will be used as the basis for broader discussions during the interview. Therefore you should be prepared to discuss your choices. 
 
+### Running application
+
+Command line syntax:
+```
+java ru.oxothuk.triangle.TrinagleType <all three egdes length>
+```
