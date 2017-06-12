@@ -1,4 +1,4 @@
-package ru.oxothuk.triangle.descriptor;
+package ru.oxothuk.triangle.model.descriptor;
 
 import ru.oxothuk.triangle.model.Triangle;
 

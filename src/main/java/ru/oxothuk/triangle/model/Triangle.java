@@ -1,7 +1,7 @@
 package ru.oxothuk.triangle.model;
 
-import ru.oxothuk.triangle.factory.TriangleValidator;
-import ru.oxothuk.triangle.factory.ValidationException;
+import ru.oxothuk.triangle.model.validation.TriangleValidator;
+import ru.oxothuk.triangle.model.validation.ValidationException;
 
 import java.util.List;
 

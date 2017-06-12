@@ -1,4 +1,4 @@
-package ru.oxothuk.triangle.factory;
+package ru.oxothuk.triangle.model.validation;
 
 import ru.oxothuk.triangle.model.Triangle;
 

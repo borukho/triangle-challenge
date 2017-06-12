@@ -1,6 +1,6 @@
 package ru.oxothuk.triangle;
 
-import ru.oxothuk.triangle.descriptor.TriangleDescriptor;
+import ru.oxothuk.triangle.model.descriptor.TriangleDescriptor;
 import ru.oxothuk.triangle.factory.DefaultShapeFactory;
 import ru.oxothuk.triangle.factory.ShapeFactory;
 import ru.oxothuk.triangle.model.Triangle;

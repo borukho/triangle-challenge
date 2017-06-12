@@ -1,4 +1,4 @@
-package ru.oxothuk.triangle.descriptor;
+package ru.oxothuk.triangle.model.descriptor;
 
 import org.junit.Test;
 import ru.oxothuk.triangle.model.Triangle;
