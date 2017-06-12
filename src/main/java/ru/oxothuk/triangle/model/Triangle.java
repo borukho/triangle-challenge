@@ -1,5 +1,8 @@
 package ru.oxothuk.triangle.model;
 
+import ru.oxothuk.triangle.factory.TriangleValidator;
+import ru.oxothuk.triangle.factory.ValidationException;
+
 import java.util.List;
 
 public class Triangle {
@@ -11,6 +14,15 @@ public class Triangle {
 
     public Triangle(List<Integer> edges) {
         this.edges = edges;
+        validate();
+    }
+
+    private void validate() {
+        try {
+            new TriangleValidator().validate(this);
+        } catch (ValidationException e) {
+            throw new IllegalArgumentException(e.getMessage(), e);
+        }
     }
 
     public boolean isEquilateral() {

@@ -1,10 +1,12 @@
 package ru.oxothuk.triangle.factory;
 
+import ru.oxothuk.triangle.model.Triangle;
+
 import java.util.List;
 
-public class TriangleSpecificationsValidator {
-    public void validate(TriangleSpecifications specifications) throws ValidationException {
-        List<Integer> edges = specifications.getEdges();
+public class TriangleValidator {
+    public void validate(Triangle triangle) throws ValidationException {
+        List<Integer> edges = triangle.getEdges();
         if (edges.size() != 3) {
             throw new ValidationException("You should specify all three edges length");
         }
