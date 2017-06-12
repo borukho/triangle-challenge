@@ -6,13 +6,13 @@ import ru.oxothuk.triangle.factory.ValidationException;
 import java.util.List;
 
 public class Triangle {
-    private List<Integer> edges;
+    private List<Number> edges;
 
-    public List<Integer> getEdges() {
+    public List<Number> getEdges() {
         return edges;
     }
 
-    public Triangle(List<Integer> edges) {
+    public Triangle(List<Number> edges) {
         this.edges = edges;
         validate();
     }

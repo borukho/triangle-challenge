@@ -80,4 +80,15 @@ public class DefaultShapeFactory_testCreateTriangle {
 
         assertThat(triangle.getEdges(), contains(3, 4, 5));
     }
+
+    @Test
+    public void assertIllegalArgumentExceptionForNullEdgeLength() throws Exception {
+        exception.expect(allOf(
+            is(instanceOf(IllegalArgumentException.class)),
+            hasProperty("message", equalTo("Triangle edges must be not null"))
+        ));
+
+        TriangleSpecifications specifications = TriangleSpecifications.byEdges(Arrays.asList(null, 4, 5));
+        factory.createTriangle(specifications);
+    }
 }
