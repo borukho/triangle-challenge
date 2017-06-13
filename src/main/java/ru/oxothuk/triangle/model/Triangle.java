@@ -38,4 +38,11 @@ public class Triangle {
     public boolean isScalene() {
         return true;
     }
+
+    @Override
+    public String toString() {
+        return "Triangle{" +
+            "edges=" + edges +
+            '}';
+    }
 }
