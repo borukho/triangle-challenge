@@ -16,7 +16,9 @@ public class TriangleValidator {
                 throw new ValidationException("Triangle edges must be not null");
             }
             BigDecimal edgeLength = BigDecimal.valueOf(edge.doubleValue());
-            if (edgeLength.compareTo(BigDecimal.ZERO) <= 0) throw new ValidationException("Triangle edges length must be positive");
+            if (edgeLength.compareTo(BigDecimal.ZERO) <= 0) {
+                throw new ValidationException("Triangle edges length must be positive");
+            }
             BigDecimal twoOtherEdgesLengthSum = edges.stream()
                 .map(value -> BigDecimal.valueOf(value.doubleValue()))
                 .reduce(BigDecimal.ZERO, BigDecimal::add)

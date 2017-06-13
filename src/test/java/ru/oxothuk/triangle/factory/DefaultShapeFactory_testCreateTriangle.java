@@ -10,6 +10,7 @@ import java.util.Arrays;
 
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertThat;
+import static ru.oxothuk.triangle.factory.TriangleSpecifications.*;
 
 public class DefaultShapeFactory_testCreateTriangle {
     @Rule
@@ -23,8 +24,7 @@ public class DefaultShapeFactory_testCreateTriangle {
 
     @Test
     public void assertTriangleIsCreatedByThreeEdgesLength() throws Exception {
-        TriangleSpecifications specifications = TriangleSpecifications.byEdges(Arrays.asList(2, 3, 4));
-        Triangle triangle = factory.createTriangle(specifications);
+        Triangle triangle = factory.createTriangle(byEdges(Arrays.asList(2, 3, 4)));
 
         assertThat(triangle, is(notNullValue()));
     }
@@ -36,8 +36,7 @@ public class DefaultShapeFactory_testCreateTriangle {
             hasProperty("message", equalTo("Triangle with such edges can not exist"))
         ));
 
-        TriangleSpecifications specifications = TriangleSpecifications.byEdges(Arrays.asList(10, 3, 4));
-        factory.createTriangle(specifications);
+        factory.createTriangle(byEdges(Arrays.asList(10, 3, 4)));
     }
 
     @Test
@@ -47,8 +46,7 @@ public class DefaultShapeFactory_testCreateTriangle {
             hasProperty("message", equalTo("You should specify all three edges length"))
         ));
 
-        TriangleSpecifications specifications = TriangleSpecifications.byEdges(Arrays.asList(10, 2));
-        factory.createTriangle(specifications);
+        factory.createTriangle(byEdges(Arrays.asList(10, 2)));
     }
 
     @Test
@@ -58,8 +56,7 @@ public class DefaultShapeFactory_testCreateTriangle {
             hasProperty("message", equalTo("You should specify all three edges length"))
         ));
 
-        TriangleSpecifications specifications = TriangleSpecifications.byEdges(Arrays.asList(10, 2, 3, 4));
-        factory.createTriangle(specifications);
+        factory.createTriangle(byEdges(Arrays.asList(10, 2, 3, 4)));
     }
 
     @Test
@@ -69,14 +66,12 @@ public class DefaultShapeFactory_testCreateTriangle {
             hasProperty("message", equalTo("Triangle edges length must be positive"))
         ));
 
-        TriangleSpecifications specifications = TriangleSpecifications.byEdges(Arrays.asList(-2, 3, 4));
-        factory.createTriangle(specifications);
+        factory.createTriangle(byEdges(Arrays.asList(-2, 3, 4)));
     }
 
     @Test
     public void assertCreatedTriangleHasSaveEdgesLengthAsSpecification() throws Exception {
-        TriangleSpecifications specifications = TriangleSpecifications.byEdges(Arrays.asList(3, 4, 5));
-        Triangle triangle = factory.createTriangle(specifications);
+        Triangle triangle = factory.createTriangle(byEdges(Arrays.asList(3, 4, 5)));
 
         assertThat(triangle.getEdges(), contains(3, 4, 5));
     }
@@ -88,7 +83,6 @@ public class DefaultShapeFactory_testCreateTriangle {
             hasProperty("message", equalTo("Triangle edges must be not null"))
         ));
 
-        TriangleSpecifications specifications = TriangleSpecifications.byEdges(Arrays.asList(null, 4, 5));
-        factory.createTriangle(specifications);
+        factory.createTriangle(byEdges(Arrays.asList(null, 4, 5)));
     }
 }

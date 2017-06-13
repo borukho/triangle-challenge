@@ -16,16 +16,16 @@ import static ru.oxothuk.triangle.factory.TriangleSpecifications.byEdges;
 public class TriangleType {
     public static void main(String[] args) {
         try {
-            List<Number> edgesLength = mapArgsToNumbers(args);
+            List<Number> edgesLength = mapCommandLineArgumentsToNumbers(args);
             Triangle triangle = createTriangleBySpecifiedEdgesLength(edgesLength);
-            writeTriangleType(triangle);
+            System.out.println(String.format("This is %s triangle", triangleType(triangle)));
         } catch (Exception e) {
             System.out.println("error while defining triangle type: " + e.getMessage());
             printHelp();
         }
     }
 
-    private static List<Number> mapArgsToNumbers(String[] args) {
+    private static List<Number> mapCommandLineArgumentsToNumbers(String[] args) {
         return Stream.of(args)
             .map(arg -> {
                 if (!arg.matches("[+-]?\\d+(\\.\\d+)?")) {
@@ -45,9 +45,8 @@ public class TriangleType {
         return shapeFactory.createTriangle(byEdges(edgesLength));
     }
 
-    private static void writeTriangleType(Triangle triangle) {
-        String triangleType = new TriangleDescriptor(triangle).type();
-        System.out.println(String.format("This is %s triangle", triangleType));
+    private static String triangleType(Triangle triangle) {
+        return new TriangleDescriptor(triangle).type();
     }
 
     private static void printHelp() {
