@@ -3,17 +3,18 @@ package ru.oxothuk.triangle.model;
 import ru.oxothuk.triangle.model.validation.TriangleValidator;
 import ru.oxothuk.triangle.model.validation.ValidationException;
 
+import java.util.Collections;
 import java.util.List;
 
 public class Triangle {
-    private List<Number> edges;
+    private final List<Number> edges;
 
     public List<Number> getEdges() {
         return edges;
     }
 
     public Triangle(List<Number> edges) {
-        this.edges = edges;
+        this.edges = Collections.unmodifiableList(edges);
         validate();
     }
 

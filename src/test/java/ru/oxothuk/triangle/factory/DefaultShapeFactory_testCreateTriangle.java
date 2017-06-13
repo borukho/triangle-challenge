@@ -85,4 +85,12 @@ public class DefaultShapeFactory_testCreateTriangle {
 
         factory.createTriangle(byEdges(Arrays.asList(null, 4, 5)));
     }
+
+    @Test
+    public void assertCreatedTriangleEdgesCanNotBeChanged() throws Exception {
+        exception.expect(UnsupportedOperationException.class);
+
+        Triangle triangle = factory.createTriangle(byEdges(Arrays.asList(3, 4, 5)));
+        triangle.getEdges().set(0, 4);
+    }
 }
