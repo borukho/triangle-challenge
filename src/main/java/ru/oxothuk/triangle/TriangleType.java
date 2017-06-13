@@ -1,5 +1,7 @@
 package ru.oxothuk.triangle;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import ru.oxothuk.triangle.model.descriptor.TriangleDescriptor;
 import ru.oxothuk.triangle.factory.DefaultShapeFactory;
 import ru.oxothuk.triangle.factory.ShapeFactory;
@@ -14,13 +16,16 @@ import java.util.stream.Stream;
 import static ru.oxothuk.triangle.factory.TriangleSpecifications.byEdges;
 
 public class TriangleType {
+    private static final Logger logger = LoggerFactory.getLogger(TriangleType.class);
+
     public static void main(String[] args) {
         try {
             List<Number> edgesLength = mapCommandLineArgumentsToNumbers(args);
             Triangle triangle = createTriangleBySpecifiedEdgesLength(edgesLength);
-            System.out.println(String.format("This is %s triangle", triangleType(triangle)));
+            logger.info("created triangle: {}", triangle);
+            logger.info("triangle type is: {}", triangleType(triangle));
         } catch (Exception e) {
-            System.out.println("error while defining triangle type: " + e.getMessage());
+            logger.error("error while defining triangle type", e);
             printHelp();
         }
     }
