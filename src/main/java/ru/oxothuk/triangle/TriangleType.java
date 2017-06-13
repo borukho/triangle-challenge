@@ -28,7 +28,7 @@ public class TriangleType {
     private static List<Number> mapArgsToNumbers(String[] args) {
         return Stream.of(args)
             .map(arg -> {
-                if (!arg.matches("[+-]?\\d+(\\.\\d*)?")) {
+                if (!arg.matches("[+-]?\\d+(\\.\\d+)?")) {
                     throw new IllegalArgumentException("Triangle edge length must be a number: " + arg);
                 }
                 try {
