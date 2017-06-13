@@ -21,6 +21,7 @@ public class TriangleType {
     public static void main(String[] args) {
         try {
             List<Number> edgesLength = mapCommandLineArgumentsToNumbers(args);
+            logger.info("trying to create triangle with edges: {}", edgesLength);
             Triangle triangle = createTriangleBySpecifiedEdgesLength(edgesLength);
             logger.info("created triangle: {}", triangle);
             logger.info("triangle type is: {}", triangleType(triangle));
@@ -33,9 +34,6 @@ public class TriangleType {
     private static List<Number> mapCommandLineArgumentsToNumbers(String[] args) {
         return Stream.of(args)
             .map(arg -> {
-                if (!arg.matches("[+-]?\\d+(\\.\\d+)?")) {
-                    throw new IllegalArgumentException("Triangle edge length must be a number: " + arg);
-                }
                 try {
                     return NumberFormat.getInstance().parse(arg);
                 } catch (ParseException e) {
