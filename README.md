@@ -8,7 +8,14 @@ The resulting code will be used as the basis for broader discussions during the 
 
 ### Running application
 
-Command line syntax:
+First, make a distribution build:
 ```
-java ru.oxothuk.triangle.TrinagleType <all three egdes length>
+gradle distZip
+``` 
+
+Then unzip and use run scripts from distribution:
 ```
+./bin/triangle-challenge <all three egdes length>
+```
+
+You should specify all three edges length in numeric format.
