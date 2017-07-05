@@ -36,7 +36,8 @@ public class Triangle {
     }
 
     public boolean isScalene() {
-        return true;
+        long count = edges.stream().distinct().count();
+        return count == 3;
     }
 
     @Override

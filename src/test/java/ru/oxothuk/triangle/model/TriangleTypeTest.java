@@ -51,9 +51,15 @@ public class TriangleTypeTest {
     }
 
     @Test
-    public void assertEquilateralTriangleIsScalene() throws Exception {
+    public void assertEquilateralTriangleIsNotScalene() throws Exception {
         Triangle triangle = shapeFactory.createTriangle(byEdges(Arrays.asList(3, 3, 3)));
-        assertThat(triangle.isScalene(), is(true));
+        assertThat(triangle.isScalene(), is(false));
+    }
+
+    @Test
+    public void assertIsoscelesTriangleIsNotScalene() throws Exception {
+        Triangle triangle = shapeFactory.createTriangle(byEdges(Arrays.asList(3, 3, 4)));
+        assertThat(triangle.isScalene(), is(false));
     }
 
 }
